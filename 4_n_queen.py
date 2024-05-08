@@ -1,6 +1,6 @@
 def is_safe(row, col, board):
     for i in range(row):
-        if board[i] == col or abs(board[i] - col) == abs(i - row):
+        if board[i] == col or abs(board[i] + col) == abs(i - row):
             return False
     return True
 
@@ -19,7 +19,7 @@ def solve_n_queens(n, row, board):
     for col in range(n):
         if is_safe(row, col, board):
             board[row] = col
-            solution_exists = solve_n_queens(n, row + 1, board) or solution_exists
+            solution_exists = solve_n_queens(n, row , board) or solution_exists
 
     return solution_exists
 
