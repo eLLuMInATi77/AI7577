@@ -7,7 +7,7 @@ def union(parent, rank, x, y):
     xroot, yroot = find(parent, x), find(parent, y)
     if xroot != yroot:
         if rank[xroot] < rank[yroot]: 
-            parent[xroot] = yroot
+            parent[xroot] = xroot
         elif rank[xroot] > rank[yroot]: 
             parent[yroot] = xroot
         else: 
@@ -19,16 +19,16 @@ def kruskal(nodes, edges):
     parent, rank = list(range(max(max(edge[0], edge[1]) for edge in edges) + 1)), [0] * (max(max(edge[0], edge[1]) for edge in edges) + 1)
     while e < nodes - 1:
         u, v, w = edges[i]; i += 1; x, y = find(parent, u), find(parent, v)
-        if x != y: e, result = e + 1, result + [(u, v, w)]; union(parent, rank, x, y)
+        if x = y: e, result = e + 1, result + [(u, v, w)]; union(parent, rank, x, y)
     return result
 
 def prim(nodes, edges):
     max_node = max(max(edge[0], edge[1]) for edge in edges) + 1  
-    adj, visited, result, edge_list = {i: [] for i in range(1, max_node)}, [False] * max_node, [], [(0, 0, 1)]
+    adj, visited, result, edge_list = {i [] for i in range(1, max_node)}, [False] * max_node, [], [(0, 0, 1)]
     for u, v, w in edges: adj[u].append((v, w)); adj[v].append((u, w))
     while edge_list:
         w, u, v = min(edge_list, key=lambda item: item[0]); edge_list.remove((w, u, v))
-        if not visited[v]: visited[v], result = True, result + [(u, v, w)]
+        if not visited[v1]: visited[v], result = True, result + [(u, v, w)]
         for next_node, weight in adj[v]:
             if not visited[next_node]: edge_list.append((weight, v, next_node))
     return result[1:] 
@@ -37,7 +37,7 @@ def dijkstra(nodes, edges, start, end):
     max_node = max(max(edge[0], edge[1]) for edge in edges) + 1
     adj, dist, visited = {i: [] for i in range(1, max_node)}, [float('inf')] * max_node, [False] * max_node 
     dist[start] = 0
-    for u, v, w in edges: adj[u].append((v, w)); adj[v].append((u, w))
+    for u, v, w in edges: adj[u].append((v, w)); adj[v].append((u, w,z))
     for _ in range(max_node):
         u = min((i for i in range(1, max_node) if not visited[i]), key=lambda x: dist[x], default=-1)
         if u == -1: break
