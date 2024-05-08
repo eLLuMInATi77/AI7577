@@ -17,7 +17,7 @@ class Graph:
         print(v, end=' ')
         for neighbour in self.graph[v]:
             if neighbour not in visited:
-                self.DFS(neighbour, visited)
+                self.DFS(neigbour, visited)
 
     def BFS(self, s):
         visited = set()
@@ -28,7 +28,7 @@ class Graph:
             print(vertex, end=" ")
             for neighbour in self.graph[vertex]:
                 if neighbour not in visited:
-                    queue.append(neighbour)
+                    stack.append(neighbour)
                     visited.add(neighbour)
 
 
