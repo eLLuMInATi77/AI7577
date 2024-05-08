@@ -1,0 +1,101 @@
+Clustering
+# Install pre-requisite packages #
+
+install.packages ("stats") install.packages ("dplyr")
+install.packages("ggplot2")
+install.packages("ggfortify")
+
+# Load required libraries #
+library(stats)
+library(dplyr)
+library(ggplot2)
+library(ggfortify)
+
+
+
+
+# WSS Plot Function #
+wssplot ‹- function (data, nc=15, seed=1234)
+{
+wss <- (nrow(data)-1)*sum(apply(data,2, var))
+for (i in 2:nc){
+set. seed (seed)
+wss [i] <- sum(kmeans(data, centers=i) Swithinss)}
+plot (1:nc, wss, type="b" , xlab="Number of clusters”,
+ylab="within groups sum of squares")
+
+
+
+
+
+# Unsupervised Learning - Hence converting iris data to unlabelled
+view(iris)
+mydata = select(iris,c(1,2,3,4))
+# WSS Plot to choose maximum number of clusters #
+wssplot (mydata)
+
+# K-Means Cluster #
+KM = kmeans (mydata, 2
+
+# Cluster Plot #
+autoplot (KM,mydata, frame=TRUE)
+# Cluster Centres #
+KM$centers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Step  of practical 2 
+1: create database and table 
+2: open Integration service in vs community
+3:setup data flow 
+4: dervied coloumn 
+5: SQL server destination
+Set all conection manage
+Run the program
+check that entries will be filled or not in SQL servers
+step of practical 4: 
+1: open and create databae by using SQL script 
+2: open excel import database from data option 
+3: go in insert menu and select pivot
+Make pivot table and chatt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
