@@ -11,7 +11,7 @@ class Node:
             child = self.shuffle(self.data,x,y,i[0],i[1])
             if child is not None:
                 child_node = Node(child,self.level+1,0)
-                children.append(child_node)
+                child.append(child_node)
         return children
     def shuffle(self,puz,x1,y1,x2,y2):
         if x2 >= 0 and x2 < len(self.data) and y2 >= 0 and y2 < len(self.data):
@@ -19,7 +19,7 @@ class Node:
             temp_puz = self.copy(puz)
             temp = temp_puz[x2][y2]
             temp_puz[x2][y2] = temp_puz[x1][y1]
-            temp_puz[x1][y1] = temp
+            temp_puz[x2][y1] = temp
             return temp_puz
         else:
             return None
@@ -61,7 +61,7 @@ class Puzzle:
         start = self.accept()
         print("Enter the goal state matrix \n")        
         goal = self.accept()
-        start = Node(start,0,0)
+        start = Node(start,0,1)
         start.fval = self.f(start,goal)
         self.open.append(start)
         print("\n\n")
