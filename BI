@@ -15,14 +15,15 @@ library(ggfortify)
 
 
 # WSS Plot Function #
-wssplot ‹- function (data, nc=15, seed=1234)
-{
-wss <- (nrow(data)-1)*sum(apply(data,2, var))
-for (i in 2:nc){
-set. seed (seed)
-wss [i] <- sum(kmeans(data, centers=i) Swithinss)}
-plot (1:nc, wss, type="b" , xlab="Number of clusters”,
-ylab="within groups sum of squares")
+wssplot <- function(data, nc = 15, seed = 1234) {
+  wss <- numeric(nc)
+  for (i in 1:nc) {
+    set.seed(seed)
+    wss[i] <- sum(kmeans(data, centers = i)$withinss)
+  }
+  plot(1:nc, wss, type = "b", xlab = "Number of clusters",
+       ylab = "Within groups sum of squares")
+}
 
 
 
@@ -35,7 +36,7 @@ mydata = select(iris,c(1,2,3,4))
 wssplot (mydata)
 
 # K-Means Cluster #
-KM = kmeans (mydata, 2
+KM = kmeans (mydata, 2)
 
 # Cluster Plot #
 autoplot (KM,mydata, frame=TRUE)
