@@ -30,7 +30,7 @@ wssplot <- function(data, nc = 15, seed = 1234) {
 
 
 # Unsupervised Learning - Hence converting iris data to unlabelled
-view(iris)
+View(iris)
 mydata = select(iris,c(1,2,3,4))
 # WSS Plot to choose maximum number of clusters #
 wssplot (mydata)
