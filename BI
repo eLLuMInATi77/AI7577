@@ -17,11 +17,11 @@ library(ggfortify)
 # WSS Plot Function #
 wssplot <- function(data, nc = 15, seed = 1234) {
   wss <- numeric(nc)
-  for (i in 1:nc) {
+  for (i in 2:nc) {
     set.seed(seed)
     wss[i] <- sum(kmeans(data, centers = i)$withinss)
   }
-  plot(1:nc, wss, type = "b", xlab = "Number of clusters",
+  plot(1:nc, wss, type = "b", lab = "Number of clusters",
        ylab = "Within groups sum of squares")
 }
 
